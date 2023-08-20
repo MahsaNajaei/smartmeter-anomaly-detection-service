@@ -33,13 +33,8 @@ public class AnomalyServiceManager implements AnomalyDetectionService {
                 notificationServiceClient.sendAnomalyNotificationToClient(cs.getUserId());
                 log.warn("Anomaly is detected!");
             }
-            System.err.println(cs);
+
             ConsumptionHistory consumptionHistory = modelMapper.map(cs, ConsumptionHistory.class);
-            consumptionHistory = new ConsumptionHistory();
-            System.err.println(consumptionHistory);
-            consumptionHistory.setConsumption(20000d);
-            consumptionHistory.setUserId(2l);
-            System.err.println(consumptionHistory);
             consumptionHistoryRepository.save(consumptionHistory);
         }
     }

@@ -19,8 +19,8 @@ public class DefaultConsumptionHistoryRepository implements ConsumptionHistoryRe
 
     @Override
     public List<Double> findConsumptionByUserId(long userId) {
-        DistinctIterable<Double> iterableObject = mongoTemplate.getCollection(collectionName).distinct("userId", Double.class);
-        Iterator<Double> iterator = iterableObject.iterator();
+        var iterableObject = mongoTemplate.getCollection(collectionName).distinct("userId", Double.class);
+        var iterator = iterableObject.iterator();
         return IteratorUtils.toList(iterator);
     }
 
